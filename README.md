@@ -1,1 +1,1 @@
-# 2026-1_Lab_Electr-nica_Digital_2_G1YG2
+# 2026-1_Lab_Electrónica_Digital_2_G1YG2
