@@ -80,12 +80,9 @@ Cada laboratorio contará con su respectiva guía y fecha de entrega asociada.
 
 | Semana | Nombre                          | Guía  | Entrega (GitHub Classroom) | Deadline   |
 | ------ | ------------------------------- | ----- | -------------------------- | ---------- |
-| 1-2    | Lab 00 - Algoritmia e instalación de herramientas básicas| lab00 | Link       | 20/Feb/2026 |
-| 3-5    | Lab01 - FPGA, Multiplicador y ASM     | lab01 | Link                       | 13/Mar/2026 |
-| 6-7    | Lab02 - ALU                     | lab02 | Link                       | 27/Mar/2026 |
-| 8-9    | Lab03 - ALU y banco registro    | lab03 | Link                       | 17/Abr/2026 |
-| 11-14  | Lab04 - Procesador Block Design | lab04 | Link                       | 22/May/2026 |
-| 15-16  | Proyecto final                  | -     | Link                       | TBD |
+| 1-3    | Lab 00 - Algoritmia e instalación de herramientas básicas| [[Lab00](labs/lab00/README.MD)] | Link       | 27/Feb/2026 |
+| 4-   | Lab01 - Protocolos     | lab01 | Link                       | TBD |
+|  | Proyecto final                  | -     | Link                       | TBD |
 
 ---
 
@@ -137,7 +134,7 @@ Se valorará positivamente la inclusión de **mejoras, optimizaciones o análisi
 
 
 ### 💻 Sistema operativo
-- Distribuciones Linux (Ubuntu, Linux Mint, u otras equivalentes).
+- Distribuciones Linux (Ubuntu, Linux Mint, u otras equivalentes). Si no maneja este sistema operativo y requiere un tutorial de cómo montarlo en paralelo con windows, le recomiendo visitar [[este video](https://www.youtube.com/watch?v=wIj7sHK0SkQ), tenga cuidado y preste atención a las indicaciones dadas en la primera sesión
 
 
 ### 🛠️ Editores y entornos
