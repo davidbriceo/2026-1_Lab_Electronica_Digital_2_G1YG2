@@ -1,203 +1,161 @@
-# Lab00: Introducción a Verilog, Simulación y Máquinas de Estados Finitos (FSM)
+# Laboratorio de Electrónica Digital II  
+**Semestre 2026-1**
 
-## Contenido
-- Objetivos de aprendizaje  
-- Fundamento teórico  
-- Procedimiento  
-- Descripción del HDL base  
-- Entregables  
+Repositorio oficial del curso **Laboratorio de Electrónica Digital II**, asociado a la asignatura de Electrónica Digital II.  
+Aquí se publicarán guías, lineamientos, cronograma y material de apoyo para el desarrollo de las prácticas de laboratorio.
 
----
-
-## 1. Objetivos de aprendizaje
-
-- Instalar y verificar el correcto funcionamiento de **Icarus Verilog** y **GTKWave**.
-- Comprender la diferencia entre **lógica combinacional** y **lógica secuencial**.
-- Diseñar e implementar **Máquinas de Estados Finitos (FSM)** sencillas en Verilog.
-- Implementar sistemas que operan a lo largo de **varios ciclos de reloj**.
-- Validar el comportamiento de los diseños mediante **testbench** y visualización de señales en GTKWave.
+## 📌 Contenido
+- [Introducción](#introducción)
+- [Docente de laboratorio](#docente-de-laboratorio)
+- [Metodología de trabajo](#metodología-de-trabajo)
+- [Cronograma](#cronograma)
+- [Entregables y documentación](#entregables-y-documentación)
+- [Criterios de evaluación](#criterios-de-evaluación)
+- [Normas generales del laboratorio](#normas-generales-del-laboratorio)
+- [Herramientas de trabajo](#herramientas-de-trabajo)
+- [Canales de comunicación](#canales-de-comunicación)
 
 ---
 
-## 2. Fundamento teórico
+## Introducción
 
-### 2.1 Lógica secuencial y sincronización
+El **Laboratorio de Electrónica Digital II** es un espacio académico orientado al **diseño, verificación e implementación de sistemas digitales**, en coherencia con el enfoque metodológico desarrollado en la asignatura magistral.
 
-A diferencia de la lógica combinacional, en la cual las salidas dependen únicamente de las entradas actuales, la lógica secuencial incorpora **elementos de memoria** que permiten almacenar información entre ciclos de reloj.  
-El comportamiento del sistema depende del **estado previo** y de las entradas presentes, siendo el reloj el encargado de sincronizar los cambios.
+A lo largo del curso, el laboratorio acompañará al estudiante en la aplicación práctica del **flujo de diseño digital**, abordando los sistemas desde niveles de abstracción altos hasta su implementación, privilegiando metodologías estructuradas y el uso de herramientas modernas de automatización.
 
-En HDL, este tipo de lógica se describe típicamente mediante bloques `always @(posedge clk)`.
+Las prácticas de laboratorio están diseñadas para que el estudiante:
+- Analice un problema a partir de sus **especificaciones funcionales**.
+- Proponga una **arquitectura de solución**.
+- Modele el sistema mediante **máquinas de estados y descripciones RTL**.
+- Verifique su funcionamiento mediante **simulación**.
+- Documente rigurosamente el proceso de diseño y sus resultados.
+
+El laboratorio enfatiza el **aprendizaje basado en problemas**, el trabajo colaborativo y la correcta articulación entre teoría y práctica, promoviendo habilidades clave requeridas en el diseño de sistemas digitales modernos.
+
+Adicionalmente, se integrará el uso de **GitHub Classroom** como herramienta de control de versiones y documentación técnica, alineando el proceso de desarrollo con prácticas empleadas en entornos profesionales e industriales.
+---
+
+## Docente de laboratorio
+
+**Docente:**  
+*David Orlando Briceño González*  
+Ingeniero Electrónico  
+Correo institucional: *dbriceno@unal.edu.co*  
+
+**Grupos:**  
+- Grupo G1 – *Miércoles de 14:00 a 16:00*  
+- Grupo G2 – *Martes de 9:00 a 11:00*  
 
 ---
 
-### 2.2 Máquinas de Estados Finitos (FSM)
+## Metodología de trabajo
 
-Una Máquina de Estados Finitos es un modelo de control secuencial en el que el sistema:
+El laboratorio se desarrollará bajo una metodología **práctica y progresiva**, orientada al aprendizaje activo y al trabajo colaborativo.
 
-- Se encuentra en **un solo estado a la vez**.
-- Cambia de estado en función de:
-  - El estado actual
-  - Las entradas
-- Produce salidas asociadas a los estados y/o transiciones.
+### 1️⃣ Preparación previa
+Antes de cada sesión, los estudiantes deberán:
+- Revisar la **guía del laboratorio** correspondiente.
+- Estudiar los conceptos teóricos necesarios para la práctica.
+- Verificar que su **entorno de trabajo** esté correctamente configurado (software y herramientas requeridas).
 
-Las FSM permiten describir de forma estructurada sistemas que requieren **control temporal**, siendo ampliamente utilizadas en:
-- Unidades de control
-- Protocolos
-- Sistemas secuenciales complejos
+### 2️⃣ Desarrollo en laboratorio
+Durante la sesión:
+- El docente realizará una **introducción breve** a la práctica.
+- Los estudiantes desarrollarán la actividad siguiendo la guía proporcionada.
+- Se fomentará el análisis, la discusión técnica y la resolución de problemas.
 
----
-
-### 2.3 Relación entre FSM y sistemas digitales complejos
-
-Muchos sistemas digitales, como multiplicadores secuenciales, ALUs y procesadores, se construyen a partir de dos bloques principales:
-
-- **Unidad de control** (FSM)
-- **Datapath** (registros, sumadores, contadores, etc.)
-
-Este laboratorio introduce estos conceptos de forma progresiva, preparando al estudiante para diseños más complejos en laboratorios posteriores.
+### 3️⃣ Validación y análisis
+Cada práctica deberá incluir:
+- Simulaciones y pruebas funcionales.
+- Verificación del diseño frente a los resultados esperados.
+- Identificación de errores, limitaciones y posibles mejoras.
 
 ---
 
-## 3. Procedimiento
-
-### 3.0.0 Instalación de Icarus Verilog (+GTK wave) y editor de código (Visual Studio Code)
-
-Antes de iniciar los ejercicios del laboratorio, es necesario contar con un entorno básico para el desarrollo y simulación en Verilog.
-Este laboratorio utilizará:
-
-- **Icarus Verilog**: compilador y simulador de Verilog.
-- **GTKWave**: visualizador de señales.
-- **Visual Studio Code**: editor de código fuente.
-
-#### 3.0.0.1 Instalación de Icarus Verilog y GTKWave
-
-##### Windows
-1. Descargue el instalador desde:
-   - [[Icarus Verilog](https://bleyer.org/icarus/)]
-2. Instale **Icarus Verilog** (el instalador incluye GTKWave). Es necesario tener muy claro la ruta donde fue instalada la aplicación, así como un entorno de carpetas bien organizado y claro, esto le hará más facul el trabajo.
-3. Asegurese de instalar la versión full de Icarus Verilog (MinGW dependencies y GTKWave)
-4. Verifique la correcta instalación ejecutando en la consola: "iverilog" en donde obtendrá de vuelta información sobre la versión instalada.
-
-#### 3.0.0.2 Instalación de Visual Studio Code
-1. Descargue el instalador desde:
-   - [[Visual Studio Code](https://code.visualstudio.com)]
-
-### 3.0 Verificación del entorno de trabajo (Smoke Test: si lo enciendo y no sale humo, al menos algo básico funciona)
-
-1. Compile y simule un módulo combinacional simple en Verilog.
-2. Genere un archivo `.vcd`.
-3. Visualice las señales en GTKWave para verificar el correcto funcionamiento del entorno.
-
-Paso a paso: 
-Descargue el archivo [smoke_andor.v](src/smoke_andor.v) y el archivo [tb_smoke_andor.v](src/tb_smoke_andor.v) y visualícelos en Visual Studio Code (VSC).
-
-Abra una nueva terminal dentro de VSC y ejecute los siguientes comandos:
-1. Compilar (-o)
-`iverilog -o tb_smoke_andor.vvp tb_smoke_andor.v`
-2. Simular (vvp = generar el .vcd)
-`vvp tb_smoke_andor.vvp`
-3. Ver ondas en GTKWave
-`gtkwave`
-New tab, abrir el archivo .vcd, poner las señales de su interés:
+## Cronograma
 
 
+El cronograma detallado de prácticas será publicado y actualizado en este repositorio.  
+Cada laboratorio contará con su respectiva guía y fecha de entrega asociada.
+
+---
+
+## Entregables y documentación
+
+- Cada práctica se documentará mediante un **informe técnico**.
+- El informe deberá realizarse en el archivo **`README.md`** del repositorio asignado por **GitHub Classroom**, usando formato **Markdown**.
+- El repositorio podrá incluir:
+  - Código HDL.
+  - Diagramas y esquemas.
+  - Resultados de simulación.
+  - Archivos adicionales solicitados en la guía.
+
+Es fundamental respetar la estructura y las indicaciones definidas en cada plantilla.
+
+---
+
+## Criterios de evaluación
+
+La evaluación del laboratorio tendrá en cuenta:
+
+
+- **Preparación previa:** evidencia de estudio y configuración adecuada.
+- **Desarrollo de la práctica:** participación, análisis y solución de problemas.
+- **Flujo de diseño digital**, incluyendo:
+  - Diseño del sistema.
+  - Descripción en HDL (Hardware Description Language).
+  - Simulación.
+  - Implementación.
+- **Demostración del funcionamiento del diseño** durante la sesión de laboratorio.
+- **Documentación en GitHub Classroom:** claridad, organización, cumplimiento de plazos y calidad del análisis.
+
+Se valorará positivamente la inclusión de **mejoras, optimizaciones o análisis adicionales** más allá de lo solicitado.
+
+---
+
+## Normas generales del laboratorio
+
+- La asistencia a las sesiones es obligatoria.
+- Puntualidad y respeto por los tiempos asignados.
+- Uso adecuado de los equipos e instalaciones.
+- Mantener el orden y la limpieza del laboratorio.
+- Reportar cualquier falla o irregularidad en los equipos.
+- No está permitido el consumo de alimentos en el laboratorio.
+
+---
+
+## Herramientas de trabajo
+
+
+### 💻 Sistema operativo
+- Distribuciones Linux (Ubuntu, Linux Mint, u otras equivalentes).
+
+
+### 🛠️ Editores y entornos
+- Visual Studio Code  
+- Vim / Sublime Text / Atom  
+
+### ⚙️ Diseño y simulación
+- Vivado / Vitis  
+- Icarus Verilog  
+- GTKWave  
+
+
+### 🌐 Control de versiones
+- Git  
+- GitHub / GitHub Classroom  
 
 
 
 ---
 
-### 3.1 Ejercicio 1 (Grupal): FSM de control – Semáforo simple
+## Canales de comunicación
 
-#### Descripción
-Diseñar un semáforo vehicular controlado por una FSM de **tres estados**, donde cada estado permanece activo durante un número fijo de ciclos de reloj.
+- **Correo institucional:** *dbriceno@unal.edu.co*  
+- Anuncios oficiales a través de GitHub Classroom.
 
-#### Estados
-- **S0:** Luz verde  
-- **S1:** Luz amarilla  
-- **S2:** Luz roja  
 
-#### Duración de estados
-- Verde: 5 ciclos  
-- Amarillo: 2 ciclos  
-- Rojo: 4 ciclos  
 
-#### Entradas
-- `clk`
-- `rst`
 
-#### Salidas
-- `green`
-- `yellow`
-- `red`
 
-#### Reglas
-- Solo una salida puede estar activa a la vez.
-- El sistema inicia siempre en el estado **Verde** después de un reset.
-- La transición entre estados ocurre automáticamente al cumplirse el número de ciclos asignado.
-
----
-
-### 3.2 Ejercicio 2 (Grupal): FSM con datapath – Acumulador secuencial
-
-#### Descripción
-Diseñar un sistema secuencial que acumula un valor de entrada durante varios ciclos, controlado por una FSM.
-
-#### Entradas
-- `clk`
-- `rst`
-- `start`
-- `x[3:0]`
-
-#### Salidas
-- `acc[5:0]`
-- `done`
-
-#### Funcionamiento
-1. **IDLE:**  
-   - Espera la señal `start`.
-2. **LOAD:**  
-   - Inicializa el acumulador en cero.
-3. **ADD:**  
-   - Suma el valor `x` al acumulador durante un número determinado de ciclos.
-4. **DONE:**  
-   - Activa `done` por un ciclo y regresa a IDLE.
-
-#### Variantes por grupo
-- Sumar `x` 3 veces.
-- Sumar `x` 4 veces.
-- Sumar `x` hasta que `acc ≥ 20`.
-- Incluir una señal de cancelación.
-
----
-
-## 4. Descripción del HDL base
-
-Cada diseño debe incluir:
-
-- Registro de **estado actual**.
-- Lógica de **siguiente estado**.
-- Lógica de **salidas**.
-- Contadores internos cuando sea necesario.
-- Señal de reset síncrona o asíncrona.
-
-Cada módulo debe estar acompañado de su **testbench**, el cual incluya:
-- Generación de reloj.
-- Aplicación de reset.
-- Estímulos adecuados para verificar todos los estados.
-- Generación del archivo `.vcd`.
-
----
-
-## 5. Entregables
-
-- Documentación del laboratorio en el archivo `README.md`.
-- Carpeta `src/` con:
-  - Código HDL de cada ejercicio.
-  - Testbench correspondiente.
-- Evidencias de simulación (capturas de GTKWave).
-- Demostración funcional durante la sesión de laboratorio.
-
-Todos los archivos deben ser cargados en el repositorio asignado en **GitHub Classroom**.
-
----
 
