@@ -60,27 +60,46 @@ Este laboratorio introduce estos conceptos de forma progresiva, preparando al es
 
 ## 3. Procedimiento
 
-### 3.0.0 Instalación de Icarus Verilog (+GTK wave) y editor de código (Visual Studio Code)
+### 3.0.0 Instalación de Icarus Verilog (+GTK wave)
 
 Antes de iniciar los ejercicios del laboratorio, es necesario contar con un entorno básico para el desarrollo y simulación en Verilog.
 Este laboratorio utilizará:
 
 - **Icarus Verilog**: compilador y simulador de Verilog.
 - **GTKWave**: visualizador de señales.
-- **Visual Studio Code**: editor de código fuente.
+- Editor de código fuente.
 
-#### 3.0.0.1 Instalación de Icarus Verilog y GTKWave
+#### Icarus-Verilog es un compilador *open source* para Verilog HDL.
 
-##### Windows
-1. Descargue el instalador desde:
-   - [[Icarus Verilog](https://bleyer.org/icarus/)]
-2. Instale **Icarus Verilog** (el instalador incluye GTKWave). Es necesario tener muy claro la ruta donde fue instalada la aplicación, así como un entorno de carpetas bien organizado y claro, esto le hará más facul el trabajo.
-3. Asegurese de instalar la versión full de Icarus Verilog (MinGW dependencies y GTKWave)
-4. Verifique la correcta instalación ejecutando en la consola: "iverilog" en donde obtendrá de vuelta información sobre la versión instalada.
+Actualice la lista de paquetes de Linux, luego instale Icarus Verilog como se muestra:
 
-#### 3.0.0.2 Instalación de Visual Studio Code
-1. Descargue el instalador desde:
-   - [[Visual Studio Code](https://code.visualstudio.com)]
+```
+sudo apt update
+```
+
+```
+sudo apt install iverilog
+```
+
+Para comprobar la instalación basta con ejecutar el siguiente comando para verificar la versión instalada:
+
+```
+iverilog -v
+```
+
+
+##### Instalación de GTKWave
+
+GTKWave es un visor de formas de onda que funciona con Icarus Verilog para mostrar los resultados de la simulación. Está convenientemente disponible en la lista de paquetes apt de Ubuntu, por lo tanto es posible usar el comando ```apt install``` de nuevo:
+
+
+```
+sudo apt install gtkwave
+```
+
+Para verificar la instalación basta con ejecutar el comando ```gtkwave``` en la terminal y deberá ejecutarse el programa.
+
+
 
 ### 3.0 Verificación del entorno de trabajo (Smoke Test: si lo enciendo y no sale humo, al menos algo básico funciona)
 
@@ -89,9 +108,9 @@ Este laboratorio utilizará:
 3. Visualice las señales en GTKWave para verificar el correcto funcionamiento del entorno.
 
 Paso a paso: 
-Descargue el archivo [smoke_andor.v](src/smoke_andor.v) y el archivo [tb_smoke_andor.v](src/tb_smoke_andor.v) y visualícelos en Visual Studio Code (VSC).
+Descargue el archivo [smoke_andor.v](src/smoke_andor.v) y el archivo [tb_smoke_andor.v](src/tb_smoke_andor.v) y visualícelos.
 
-Abra una nueva terminal dentro de VSC y ejecute los siguientes comandos:
+Ejecute los siguientes comandos:
 1. Compilar (-o)
 `iverilog -o tb_smoke_andor.vvp tb_smoke_andor.v`
 2. Simular (vvp = generar el .vcd)
@@ -101,12 +120,9 @@ Abra una nueva terminal dentro de VSC y ejecute los siguientes comandos:
 New tab, abrir el archivo .vcd, poner las señales de su interés:
 
 
-
-
-
 ---
 
-### 3.1 Ejercicio 1 (Grupal): FSM de control – Semáforo simple
+### 3.1 Ejercicio 1 (Grupal): FSM de control – Semáforo simple - Sesión 1
 
 #### Descripción
 Diseñar un semáforo vehicular controlado por una FSM de **tres estados**, donde cada estado permanece activo durante un número fijo de ciclos de reloj.
@@ -137,7 +153,7 @@ Diseñar un semáforo vehicular controlado por una FSM de **tres estados**, dond
 
 ---
 
-### 3.2 Ejercicio 2 (Grupal): FSM con datapath – Acumulador secuencial
+### 3.2 Ejercicio 2 (Grupal): FSM con datapath – Acumulador secuencial - Sesión 2
 
 #### Descripción
 Diseñar un sistema secuencial que acumula un valor de entrada durante varios ciclos, controlado por una FSM.
@@ -196,6 +212,7 @@ Cada módulo debe estar acompañado de su **testbench**, el cual incluya:
   - Testbench correspondiente.
 - Evidencias de simulación (capturas de GTKWave).
 - Demostración funcional durante la sesión de laboratorio.
+- Ilustración o gráfica con los estados implementados.
 
 Todos los archivos deben ser cargados en el repositorio asignado en **GitHub Classroom**.
 
