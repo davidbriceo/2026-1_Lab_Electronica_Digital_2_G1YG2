@@ -155,7 +155,7 @@ Diseñar un semáforo vehicular controlado por una FSM de **tres estados**, dond
 
 ---
 
-### 3.2 Ejercicio 2 (Grupal): FSM con datapath – Acumulador secuencial - Sesión 2
+### 3.2 Ejercicio 2 (Grupal): FSM con datapath – Acumulador secuencial - Sesión 1
 
 #### Descripción
 Diseñar un sistema secuencial que acumula un valor de entrada durante varios ciclos, controlado por una FSM.
