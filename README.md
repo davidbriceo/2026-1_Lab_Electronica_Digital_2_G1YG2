@@ -80,7 +80,7 @@ Cada laboratorio contará con su respectiva guía y fecha de entrega asociada.
 
 | Semana | Nombre                          | Guía  | Entrega (GitHub Classroom) | Deadline   |
 | ------ | ------------------------------- | ----- | -------------------------- | ---------- |
-| 1-3    | Lab 00 - Algoritmia e instalación de herramientas básicas| [[Lab00](labs/lab00/README.MD)] | Link       | 27/Feb/2026 |
+| 1-3    | Lab 00 - Algoritmia e instalación de herramientas básicas| [Lab00](labs/lab00/README.md) | Link       | 27/Feb/2026 |
 | 4-   | Lab01 - Protocolos     | lab01 | Link                       | TBD |
 |  | Proyecto final                  | -     | Link                       | TBD |
 
@@ -134,7 +134,7 @@ Se valorará positivamente la inclusión de **mejoras, optimizaciones o análisi
 
 
 ### 💻 Sistema operativo
-- Distribuciones Linux (Ubuntu, Linux Mint, u otras equivalentes). Si no maneja este sistema operativo y requiere un tutorial de cómo montarlo en paralelo con windows, le recomiendo visitar [[este video](https://www.youtube.com/watch?v=wIj7sHK0SkQ), tenga cuidado y preste atención a las indicaciones dadas en la primera sesión
+- Distribuciones Linux (Ubuntu, Linux Mint, u otras equivalentes). Si no maneja este sistema operativo y requiere un tutorial de cómo montarlo en paralelo con windows, le recomiendo visitar [este video](https://www.youtube.com/watch?v=wIj7sHK0SkQ), tenga cuidado y preste atención a las indicaciones dadas en la primera sesión
 
 
 ### 🛠️ Editores y entornos
@@ -150,8 +150,6 @@ Se valorará positivamente la inclusión de **mejoras, optimizaciones o análisi
 ### 🌐 Control de versiones
 - Git  
 - GitHub / GitHub Classroom  
-
-
 
 ---
 
