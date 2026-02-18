@@ -80,7 +80,7 @@ Cada laboratorio contará con su respectiva guía y fecha de entrega asociada.
 
 | Semana | Nombre                          | Guía  | Entrega (GitHub Classroom) | Deadline   |
 | ------ | ------------------------------- | ----- | -------------------------- | ---------- |
-| 1-3    | Lab 00 - Algoritmia e instalación de herramientas básicas| [Lab00](labs/lab00/README.md) | Link       | 27/Feb/2026 |
+| 1-3    | Lab 00 - Algoritmia e instalación de herramientas básicas| [Lab00](labs/lab00/README.md) | [Link](https://classroom.github.com/a/4ZobUJIH)       | 27/Feb/2026 |
 | 4-   | Lab01 - Protocolos     | lab01 | Link                       | TBD |
 |  | Proyecto final                  | -     | Link                       | TBD |
 
